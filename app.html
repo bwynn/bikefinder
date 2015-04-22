@@ -7,8 +7,9 @@
     <script>
       angular.module("bikefinder", []);
     </script>
+    <script src='controllers/bikefinder.js'></script>
   </head>
-  <body>
+  <body ng-controller='bikefinderCtrl'>
     <nav class='nav'>
       <a href='#'>BikeFinder</a>
     </nav>
@@ -16,7 +17,14 @@
       Categories go here
     </div>
     <div>
-      Products go here
+      <div ng-repeat='item in data.bikes'>
+        <h3>{{item.brand}}</h3>
+        <h3>{{item.model}}</h3>
+        <h3>{{item.modelyear}}</h3>
+        <h3>{{item.category}}</h3>
+        <h3>{{item.description}}</h3>
+        <h3>{{item.fs}}</h3>
+        <h3>{{item.wheelsize}}</h3>
     </div>
   </body>
 </html>
