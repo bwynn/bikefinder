@@ -1,0 +1,31 @@
+- UX determines bike suggestions based on
+  - Type of Bike
+  - Experience
+  - Investment
+  - Tags
+
+- Rounds of questions
+  1. Type of Bike
+    - These questions are geared toward finding out general information about a users desired experience and bike
+      - How much time do you want to spend on road?
+      - Ideally, you want to use this road on...
+
+  2. Experience
+    - Drills down into the type of bike experience the user wants to have.
+      - How long of a ride?
+      - Someone passes you, what do you do?
+
+  3. Investment
+    - Gets to the nitty gritty regarding how much money to spend
+      - How long do you want to be using this bike?
+      - Is this your primary bike?
+      - How often will you be riding?
+
+
+  * NOTES *
+  - Include user info tips about why some of these questions are being asked? Helping a user understand why the program suggests a certain quality of bike based on their answers helps them get a realistic idea as to how much they should expect to spend
+
+  - The ability for a user to do a typed search or start a new query based on category criteria will make easy access to the primary function of the app
+    eg. A navigation bar that includes a link to the user profile, a text query, or a new search session
+
+  
