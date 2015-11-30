@@ -1,0 +1,57 @@
+// Bike point structure could be determined by bike categories being evaluated by
+// value as follows:
+
+Cruiser Bike: 0 - 24 pts
+Hybrid Bike: 25 - 49 pts
+Road Bike: 50 - 74 pts
+Mountain Bike: 75 - 99 pts
+
+// The evaluation of appropriate categories can be based on the average score
+// from all of the questions asked
+
+// The scores are determined by the category ranking, which is laid out and ranked
+// by ride type intensity. This scale is open to alternative evaluation, but
+// at the time of development, this scoring system matches the need to determine
+// bike type based on ride intensity, an all day ride is going to be at a higher
+// intensity than a cruise around town.
+
+1. Type of Bike
+    - What kind of terrain do you want to be able to ride on?
+      - road // 70 pts
+      - bike paths/city streets // 5 pts
+      - fireroads // 45 pts
+      - singletrack/offroad trails // 200 pts
+      - paths/roads/fireroads // 45 pts
+
+      - Do you plan on riding in hills at all? // determine desire/need for gears
+        - Yes // 30 pts
+        - No // 10 pts
+
+    - Your typical ride:
+      - Cruising around town // 10 pts
+      - Commuting to work // 55 pts
+      - Group rides/ riding with friends // 75 pts
+      - Before/after work ride // 75 pts
+      - Weekend rides // 55 pts
+      - All day adventures // 75 pts
+
+    - Why do you want a new bike?
+      - recreation // 15 pts
+      - add to the collection // 75 pts
+      - race/triathlon // 75 pts
+      - fitness // 45 pts
+      - commuting // 55 pts
+
+    - How long is your perfect ride? // This can be a goal length too.
+      - 30 - 60 minutes // 20 pts
+      - 2 - 3 hours // 45 pts
+      - 3 - 5 hours // 75 pts
+      - 5 hours + // 75 pts
+
+2. Experience
+    - Someone passes you, what do you do?
+
+3. Investment
+    - How long do you want to be using this bike?
+    - Is this your primary bike?
+    - How often will you be riding?
