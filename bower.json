@@ -1,0 +1,11 @@
+{
+  "name": "bike_query_mean",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-animate": "latest",
+    "angular-filepicker": "latest",
+    "bootstrap": "latest"
+  }
+}

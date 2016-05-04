@@ -1,0 +1,176 @@
+$hundo: 100%;
+$large-width: 1180px;
+$medium-width: 992px;
+$mtn-brown: #A17746;
+
+@mixin large {
+  @media (min-width: #{$medium-width}) and (max-width: #{$large-width}) {
+    @content;
+  }
+}
+
+// medium and small viewport breakpoint
+@mixin medium {
+  @media (max-width: #{$medium-width}) {
+    @content;
+  }
+}
+
+// input slider mixins
+@mixin slider-thumb {
+  border: 1px solid #111;
+  height: 2em;
+  width: 1em;
+  border-radius: 3px;
+  background: sienna;
+  cursor: pointer;
+  margin-top: -12px;
+  box-shadow: 2px 2px 1px #999;
+}
+
+@mixin slider-track {
+  width: $hundo;
+  height: 10px;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px #9a9a9a;
+  background: #fff; //#5bc0de
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+form {
+  width: $hundo;
+}
+
+// range input styles
+
+// strip out browser default styles
+input[type="range"] {
+  margin: 2em 0;
+  -webkit-appearance: none;
+  width: $hundo;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+// slider thumb
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @include slider-thumb;
+}
+
+input[type="range"]::-moz-range-thumb {
+  @include slider-thumb;
+}
+
+input[type="range"]::-ms-thumb {
+  @include slider-thumb;
+}
+
+// slider track
+input[type="range"]::-webkit-slider-runnable-track {
+  @include slider-track;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: green;
+}
+
+input[type="range"]::-moz-range-track {
+  @include slider-track;
+}
+
+input[type="range"]::-ms-track {
+  width: $hundo;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  @include slider-track;
+}
+
+
+// FORM GROUP SECTION
+
+.user-prefs .form-group {
+  padding: 0 1em;
+  width: inherit;
+  position: absolute;
+  top: 34px;
+  left: $hundo * 2;
+  animation: 1s invisible;
+  display: none;
+  h2 {
+    float: left;
+    &.review-headline {
+      float: none;
+    }
+  }
+  .qCount {
+    margin: 2.3em 0 0 1em;
+    display: inline-block;
+  }
+  .show-range {
+    margin-bottom: 1em;
+    .max-val {
+      float: right;
+    }
+    .min-val,
+    .max-val {
+      font-size: 1.4em;
+    }
+  }
+  p {
+    margin: 3em 0 0 0;
+    font-size: 1.2em;
+    &.pref {
+      margin: 1em 0;
+    }
+  }
+  &.active {
+    animation: 1s visible;
+    left: 0;
+    display: block;
+  }
+  .next-btn {
+    float: right;
+  }
+  .mtn-icon,
+  .stability-icon {
+    height: 100px;
+  }
+}
+
+.user-prefs .review.form-group {
+  p {
+    margin: .5em 0;
+  }
+}
+
+@keyframes visible {
+  from {
+    opacity: 0;
+    left: $hundo * 2;
+  }
+  to {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes invisible {
+  0% {
+    opacity: 1;
+    left: 0;
+  }
+  50% {
+    opacity: 0;
+    left: -$hundo * 2;
+  }
+  100% {
+    left: $hundo * 2;
+    opacity: 0;
+  }
+}
