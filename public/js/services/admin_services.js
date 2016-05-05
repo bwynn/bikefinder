@@ -24,6 +24,9 @@ angular.module('AdminService', [])
       },
       getQuestions: function() {
         return $http.get('/questions');
+      },
+      addQuestion: function(data) {
+        return $http.post('/add_question', data);
       }
     };
   }]);

@@ -1,3 +1,68 @@
-<div ng-repeat="question in questions">
-  {{question}}
+<div class="panel questions-admin">
+  <div class="panel panel-head">
+    <h2>Questions</h2>
+    <button class="btn btn-primary" ng-click="toggleForm()">Add Question</button>
+  </div>
+  <div class="panel panel-body">
+    <div ng-repeat="question in questions">
+      <h3>Question {{$index + 1}}</h3>
+      <p><strong>Title:</strong> {{question.title}}</p>
+      <p><strong>Model:</strong> {{question.model}}</p>
+      <p><strong>Value:</strong> {{question.value}}</p>
+      <p><strong>Answers:</strong></p>
+      <ul>
+        <li ng-repeat="answer in question.answers">{{answer}}</p>
+      </ul>
+      <p><strong>Min Val:</strong> {{question.minVal || "Issue getting min val"}}</p>
+      <p><strong>Max Val:</strong> {{question.maxVal || "Issue getting max val"}}"</p>
+      <p><strong>Question:</strong> {{question.question}}</p>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<div class="modal-layer" ng-show="showForm">
+  <div class="modal-form">
+    <form class="form" novalidate>
+      <h3>Add a question</h3>
+      <button ng-click="toggleForm()">X</button>
+      <div class="form-group">
+        <label>Title</label>
+        <input type="text" class="form-control" ng-model="title" placeholder="question title" required>
+      </div>
+      <div class="form-group">
+        <label>Model</label>
+        <input type="text" class="form-control" ng-model="model" placeholder="question model" required>
+      </div>
+      <div class="form-group">
+        <label>Value</label>
+        <input type="text" class="form-control" ng-model="value" placeholder="question default value" required>
+      </div>
+      <div class="form-group">
+        <label>Question</label>
+        <input type="text" class="form-control" ng-model="formQuestion" placeholder="enter the question here" required>
+      </div>
+      <div class="form-group">
+        <label>Answer 1</label>
+        <input type="text" class="form-control" ng-model="answer1" placeholder="answer number 1" required>
+      </div>
+      <div class="form-group">
+        <label>Answer 2</label>
+        <input type="text" class="form-control" ng-model="answer2" placeholder="answer number 2" required>
+      </div>
+      <div class="form-group">
+        <label>Answer 3</label>
+        <input type="text" class="form-control" ng-model="answer3" placeholder="answer number 3" required>
+      </div>
+      <div class="form-group">
+        <label>Min Value</label>
+        <input type="text" class="form-control" ng-model="minVal" placeholder="small end of the scale for value range" required>
+      </div>
+      <div class="form-group">
+        <label>Max Value</label>
+        <input type="text" class="form-control" ng-model="maxVal" placeholder="high end of the spectrum for value range" required>
+      </div>
+      <button class="btn btn-success" ng-click="addQuestion()">Add Question</button>
+    </form>
+  </div>
 </div>

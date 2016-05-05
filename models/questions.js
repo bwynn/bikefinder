@@ -8,8 +8,8 @@ var QuestionSchema = new Schema({
   "model": String,
   "value": String,
   "answers": [String],
-  "min_val": String,
-  "max_val": String,
+  "minVal": String,
+  "maxVal": String,
   "question": String
 });
 

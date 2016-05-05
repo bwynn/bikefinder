@@ -9,7 +9,7 @@ exports.getQuestions = function(req, res) {
     if (err) {
       res.send(err);
     }
-    
+
     res.json(data);
   }, function(reject) {
     res.json({data: "Rejected due to " + reject});
@@ -22,10 +22,10 @@ exports.addQuestion = function(req, res) {
   var question = new Question();
 
   question.title = req.body.title;
-  question.model = req.body.mile;
+  question.model = req.body.model;
   question.value = req.body.value;
-  question.min_val = req.body.minVal;
-  question.max_val = req.body.maxVal;
+  question.minVal = req.body.minVal;
+  question.maxVal = req.body.maxVal;
   question.question = req.body.question;
   question.answers = req.body.answer;
 

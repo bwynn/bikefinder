@@ -1,0 +1,37 @@
+.questions-admin {
+  position: relative;
+  z-index: 1;
+}
+
+.modal-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  height: inherit;
+  width: 100vw;
+  z-index: 10;
+  background-color: #424242;
+  color: white;
+  //transition: .5s all ease-in-out;
+  animation: 1s fadeIn;
+  .modal-form {
+    form {
+      margin: 1em auto;
+      padding: 1em;
+      width: 60%;
+      .form-group {
+        margin: 2em auto;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
