@@ -1,74 +1,8 @@
 angular.module('FormController', [])
   .controller('formCtrl', ['$scope', '$location', '$rootScope', function($scope, $location, $rootScope) {
 
-    // placeholder data
-    $scope.questions = [
-      {
-        title: "Climbing and Descending",
-        model: "range",
-        value: "50",
-        answers: [
-          "Climbing",
-          "Descending",
-          "Both climbing and descending"
-        ],
-        "min_val": "Descending",
-        "max_val": "Climbing",
-        question: "Would you rather have a bike that climbs well, or one that goes downhill well? Or one bike to rule them all?"
-      },
-      {
-        title: "Stable vs. Nimble",
-        model: "stability",
-        value: "50",
-        answers: [
-          "A bike that holds the line you choose, nimble and quick handling",
-          "A bike that you will feel comfortable and confident on.",
-          "Feels good and balanced under your feet"
-        ],
-        "min_val": "Nimble",
-        "max_val": "Stable",
-        question: "Would you rather have a bike that you feel stable and confident on, or one that follows your lead?"
-      },
-      {
-        title: "Technical Prowess",
-        model: "technical",
-        value: "50",
-        answers: [
-          "Fire roads, gravel, moderate single-track. Expected rides not terribly technical.",
-          "Roots, rocks, steep climbs and descents, jumps. Expected rides will be gnar.",
-          "A good all-rounder"
-        ],
-        "min_val": "Not Technical",
-        "max_val": "Very Technical",
-        question: "Are you planning on riding technical trails? Or would you like to be able to? Use the slider below to indicate how technical the terrain that you'll be riding is.",
-      },
-      {
-        title: "Travel",
-        model: "travel",
-        value: "50",
-        answers: [
-          "Less travel, good for cross country and weight oriented rigs.",
-          "A good trail bike, a lean enough geometry to allow for efficient climbing, usually with suspension that allows for wide ranges of compression damping, yet capable and ready to be pointed down the hill and tackle almost every challenge and ready for more.",
-          "A true descender, ranging from enduro racing to bike park whips, primed to be hucked into oblivion and handle a day spinning laps at the park, to full on World Cup downhill trail race beasts."
-        ],
-        "min_val": "100mm",
-        "max_val": "200mm",
-        question: "How much travel?"
-      },
-      {
-        title: "Investment",
-        model: "investment",
-        value: "50",
-        answers: [
-          "Minimum investment. Looking for the best bang for your buck, and willing to upgrade when you are ready. Because if you plan to ride a lot, you will want to invest more.",
-          "Medium investment. This is a good level of investment with little room for improvement off the bat.",
-          "Maximum investment. You want the best gear, looking to get the lightest, strongest, and most durable gear money can buy. If you plan on riding a lot, this really is the best way to go."
-        ],
-        "min_val": "Minimum",
-        "max_val": "Maximum",
-        question: "What level of investment?"
-      }
-    ];
+    // holds data array objects
+    $scope.questions;
 
     $scope.prefs = {}; // object to contain user preferences
 
@@ -107,6 +41,18 @@ angular.module('FormController', [])
     $scope.isSet = function (questionId) {
       return $scope.question === questionId;
     };
+
+    // generates the contents inside
+    /*$scope.generateQuestions = function(model, a1, a2, a3) {
+      if (model > 66) {
+        this.answer = a1;
+      } else if (model <== 33) {
+        this.answer = a2;
+      } else {
+        this.answer = a3;
+      }
+      return this.answer;
+    };*/
 
     $scope.submit = function() {
       // add value

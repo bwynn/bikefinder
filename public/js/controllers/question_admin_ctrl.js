@@ -25,11 +25,23 @@ angular.module('QuestionAdminCtrl', [])
         minVal: $scope.minVal,
         maxVal: $scope.maxVal,
         question: $scope.formQuestion,
-        answer: $scope.answer1,
-        answer: $scope.answer2,
-        answer: $scope.answer3
+        answer: [$scope.answer1, $scope.answer2, $scope.answer3],
+        id: $scope.order
       }).then(function(data) {
         init();
+
+        // set model values back to empty strings
+        $scope.title = "";
+        $scope.model = "";
+        $scope.value = "";
+        $scope.minVal = "";
+        $scope.maxVal = "";
+        $scope.formQuestion = "";
+        $scope.answer1 = "";
+        $scope.answer2 = "";
+        $scope.answer3 = "";
+        $scope.order = "";
+        // hide modal window by setting state value to false 
         $scope.showForm = false;
       });
     };

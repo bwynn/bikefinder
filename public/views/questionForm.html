@@ -1,68 +1,11 @@
 <form novalidate class="panel panel-body user-prefs">
-  <div class="form-group" ng-class="{active:isSet(1)}">
-    <h2>Climbing vs. Descending</h2><span class="qCount">1 of 5 questions</span>
-    <p>Would you rather have a bike that climbs well, or one that goes downhill well? Or one bike to rule them all?</p>
-    <input type="range" min="0" max="100" ng-model="climb" class="mtn-slider">
-    <svg width="100%" height="100%" class="mtn-icon">
-      <defs>
-        <linearGradient id="mtn-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style="stop-color:#A17746;stop-opacity:1"/>
-          <stop offset="100%" style="stop-color:sienna;stop-opacity:1"/>
-        </linearGradient>
-      </defs>
-      <polygon points="2000,0 2000,100 0,100" fill="url(#mtn-gradient)"/>
-    </svg>
-    <div class='show-range'><span class="min-val">Descending</span><span class="max-val">Climbing</span></div>
-    <p class="pref"><strong>Your Preference:</strong> {{strengths}}</p>
-    <button ng-click="setQuestion(2)" class="btn btn-info next-btn">Next Question</button>
-  </div>
-
-  <div class="form-group" ng-class="{active:isSet(2)}">
-    <h2>Stable vs. Nimble</h2><span class="qCount">2 of 5 questions</span>
-    <p>Would you rather have a bike that you feel stable and confident on, or one that follows your lead?</p>
-    <input type="range" min="0" max="100" ng-model="stability">
-    <div class='show-range'><span class="min-val">Nimble</span><span class="max-val">Stable</span></div>
-    <p class="pref"><strong>Your Preference:</strong> {{stablePrefs}}</p>
-    <button ng-click="setQuestion(1)" class='btn btn-info'>Previous Question</button>
-    <button ng-click="setQuestion(3)" class="btn btn-info next-btn">Next Question</button>
-  </div>
-
-  <div class="form-group" ng-class="{active:isSet(3)}">
-    <h2>Technical Prowess</h2><span class="qCount">3 of 5 questions</span>
-    <p>Are you planning on riding technical trails? Or would you like to be able to? Use the slider below to indicate how technical the terrain that you'll be riding is.</p>
-    <input type="range" min="0" max="100" ng-model="technical">
-    <div class="show-range"><span class="min-val">Not Technical</span><span class="max-val">Very Technical.</span></div>
-    <p class="pref"><strong>Your Preference:</strong> {{techPrefs}}</p>
-    <button ng-click="setQuestion(2)" class='btn btn-info'>Previous Question</button>
-    <button ng-click="setQuestion(4)" class="btn btn-info next-btn">Next Question</button>
-  </div>
-
-  <div class="form-group" ng-class="{active:isSet(4)}">
-    <h2>Travel</h2><span class="qCount">4 of 5 questions</span>
-    <p>How much travel?</p>
-    <input type="range" min="0" max="100" ng-model="travel">
-    <div class="show-range"><span class="min-val">100mm</span><span class="max-val">200mm.</span></div>
-    <p class="pref"><strong>Your Preference:</strong> {{travelPrefs}}</p>
-    <button ng-click="setQuestion(3)" class='btn btn-info'>Previous Question</button>
-    <button ng-click="setQuestion(5)" class="btn btn-info next-btn">Next Question</button>
-  </div>
-
-  <div class="form-group" ng-class="{active:isSet(5)}">
-    <h2>Investment</h2><span class="qCount">5 of 5 questions</span>
-    <p>What level of investment?</p>
-    <input type="range" min="0" max="100" ng-model="investment">
-    <div class="show-range"><span class="min-val">Minimum</span><span class="max-val">Maximum</span></div>
-    <p class="pref"><strong>Your Preference:</strong> {{investmentPrefs}}</p>
-    <button ng-click="setQuestion(4)" class='btn btn-info'>Previous Question</button>
-    <button ng-click="setQuestion(6)" class="btn btn-info next-btn">Next Question</button>
-  </div>
-
-  <div class="form-group review" ng-class="{active:isSet(6)}">
-    <h2 class="review-headline">Review your answers</h2>
-    <p><strong>Bike's Strengths:</strong> {{strengths}}</p>
-    <p><strong>Bike Stability:</strong> {{stablePrefs}}</p>
-    <p><strong>Ride Technicality:</strong> {{techPrefs}}</p>
-    <button ng-click="setQuestion(5)" class='btn btn-info'>Previous Question</button>
-    <button class='btn btn-success' ng-click="submit()">Click to get your suggested bike!</button>
+  <div class="form-group" ng-class="{active:isSet({{$index + 1}})}" ng-repeat="question in questions">
+    <h2>{{question.title}}</h2><span class="qCount">{{$index + 1}} of {{questions.length + 1}}</span>
+    <p>{{question.question}}</p>
+    <input type="{{question.model}}" min="{{question.minVal}}" max="{{question.maxVal}}" ng-model="{{question.model}}" class="mtn-slider">
+    <div class='show-range'><span class="min-val">{{question.minVal}}</span><span class="max-val">{{question.maxVal}}</span></div>
+    <p class="pref"><strong>Your Preference:</strong> {{question.answer}}</p>
+    <button ng-click="setQuestion({{index}})" class='btn btn-info'>Previous Question</button>
+    <button ng-click="setQuestion({{$index + 2}})" class="btn btn-info next-btn">Next Question</button>
   </div>
 </form>

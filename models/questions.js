@@ -10,7 +10,8 @@ var QuestionSchema = new Schema({
   "answers": [String],
   "minVal": String,
   "maxVal": String,
-  "question": String
+  "question": String,
+  "_id": String
 });
 
 module.exports = mongoose.model("Question", QuestionSchema);

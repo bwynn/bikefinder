@@ -28,6 +28,7 @@ exports.addQuestion = function(req, res) {
   question.maxVal = req.body.maxVal;
   question.question = req.body.question;
   question.answers = req.body.answer;
+  question._id = req.body.id;
 
   question.save(function(err, question) {
     if (err) {
