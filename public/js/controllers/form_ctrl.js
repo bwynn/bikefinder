@@ -1,34 +1,11 @@
 angular.module('FormController', [])
-  .controller('formCtrl', ['$scope', '$location', '$rootScope', function($scope, $location, $rootScope) {
+  .controller('formCtrl', ['$scope', '$location', '$rootScope', 'admin', function($scope, $location, $rootScope, admin) {
 
-    // holds data array objects
-    $scope.questions;
-
-    $scope.prefs = {}; // object to contain user preferences
-
-    // CLIMBING VARS
-    $scope.climb = "50"; // set default value
-
-    // STABILITY VARS
-    $scope.stability = "50"; // set default value;
-
-    // add scope and technical prowess
-    $scope.technical = "50"; // set default value
-
-    // set default value for question picker
-    $scope.question = 1;
-
-    // set travel value
-    $scope.travel = 50;
-
-    // set default value for full suspension to true
-    $scope.fullSuspension = true;
-
-    // set investment value
-    $scope.investment = "50";
-
-    // set default visited value
-    $scope.visited = false;
+    admin.getQuestions().then(function(data) {
+      $scope.questionData = data.data;
+      console.log($scope.questionData);
+      $scope.count = $scope.questionData.length;
+    });
 
     // set the question when clicked
     $scope.setQuestion = function(questionId) {
@@ -41,18 +18,6 @@ angular.module('FormController', [])
     $scope.isSet = function (questionId) {
       return $scope.question === questionId;
     };
-
-    // generates the contents inside
-    /*$scope.generateQuestions = function(model, a1, a2, a3) {
-      if (model > 66) {
-        this.answer = a1;
-      } else if (model <== 33) {
-        this.answer = a2;
-      } else {
-        this.answer = a3;
-      }
-      return this.answer;
-    };*/
 
     $scope.submit = function() {
       // add value
@@ -133,6 +98,10 @@ angular.module('FormController', [])
         $scope.investmentPrefs = "Maximum investment. You want the best gear, looking to get the lightest, strongest, and most durable gear money can buy. If you plan on riding a lot, this really is the best way to go.";
       }
     });
+
+    (function() {
+      $scope.setQuestion(1);
+    }());
 
   }]);
 
