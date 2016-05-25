@@ -4,8 +4,8 @@
     <p>{{question.question}}</p>
     <input type="range" min="{{question.minVal}}" max="{{question.maxVal}}" ng-model="question.model" class="mtn-slider">
     <div class='show-range'><span class="min-val">{{question.minVal}}</span><span class="max-val">{{question.maxVal}}</span></div>
-    <p class="pref"><strong>Your Preference:</strong> <span ng-repeat="answer in question.answers">{{answer}}</span></p>
-    <button ng-click="setQuestion($index)" class='btn btn-info'>Previous Question</button>
+    <p class="pref"><strong>Your Preference:</strong> <span ng-show="selectedAnswer" ng-repeat="answer in question.answers">{{answer}}</span></p>
+    <button ng-click="setQuestion($index)" class='btn btn-info' ng-show="$index !== 0">Previous Question</button>
     <button ng-click="setQuestion($index + 2)" class="btn btn-info next-btn">Next Question</button>
   </div>
 </form>

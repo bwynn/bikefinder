@@ -2,26 +2,13 @@ angular.module('FormController', [])
   .controller('formCtrl', ['$scope', '$location', '$rootScope', 'admin', function($scope, $location, $rootScope, admin) {
 
     $scope.prefs = {};
+    $scope.question = 1;
 
     admin.getQuestions().then(function(data) {
       $scope.questionData = data.data;
       console.log($scope.questionData);
       $scope.count = $scope.questionData.length;
-
-      angular.forEach($scope.questionData, function(value, key) {
-        $scope.$watch(value, function() {
-          if (this.model > 66) {
-            return $scope.answer = this.answer[0];
-          }
-          else if (this.model <= 33) {
-            return $scope.answer = this.answer[1];
-          }
-          else {
-            return $scope.answer = this.answer[2];
-          }
-        });
-      })
-
+      watcher($scope.questionData, $scope.selectedAnswer);
     });
 
     // set the question when clicked
@@ -50,20 +37,19 @@ angular.module('FormController', [])
       $location.path('/results'); // go to the results page
     };
 
-    function watcher(scopeTarget) {
-      for (var i = 0; i < scopeTarget.length; i++) {
-        $scope.$watch(scopeTarget[i].model, function() {
+    function watcher(scopeTarget, selectedAnswer) {
+      $scope.$watch(scopeTarget.model, function() {
+        for (var i = 0; i < scopeTarget.length; i++) {
           if (scopeTarget[i].model > 66) {
-            return $scope.answer = scopeTarget[i].answer[0];
+            this.selectedAnswer = scopeTarget[i].answers[0];
+          } else if (scopeTarget[i].model < 33) {
+            this.selectedAnswer = scopeTarget[i].answers[1];
+          } else {
+            this.selectedAnswer = scopeTarget[i].answers[2];
+            console.log(this.selectedAnswer);
           }
-          else if (scopeTarget[i].model <= 33) {
-            return $scope.answer = scopeTarget[i].answer[1];
-          }
-          else {
-            return $scope.answer = scopeTarget[i].answer[2];
-          }
-        });
-      }
+        }
+      });
     }
 
   }]);
