@@ -1,9 +1,43 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic);
 body {
-  font-family: "Roboto", sans-serif; }
-  body .action {
-    font-weight: 200;
-    border-radius: 2px; }
+  background-color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px; }
+
+.section-headline {
+  border-bottom: 2px solid #2b2b2b;
+  width: 100%; }
+
+.section-content {
+  margin: 16px 0; }
+
+.action {
+  font-weight: 200;
+  border-radius: 2px;
+  color: #ffffff;
+  -webkit-transition: 0.3s background ease-in-out;
+  transition: 0.3s background ease-in-out; }
+  .action:hover {
+    color: #ffffff; }
+  .action:focus {
+    outline: none; }
+  .action.primary-action {
+    background-color: #156ABD;
+    border: 2px solid #095299; }
+    .action.primary-action:hover {
+      background-color: #095299;
+      border: 2px solid #156ABD; }
+  .action.secondary-action {
+    background-color: #FF9C0B;
+    border: 2px solid #B76C00; }
+    .action.secondary-action:hover {
+      background-color: #B76C00;
+      border: 2px solid #FF9C0B; }
+
+a.primary-link {
+  font-size: 20.8px; }
+a.secondary-link {
+  font-weight: 300; }
 
 form {
   width: 100%; }
