@@ -1,6 +1,3 @@
-$large: 949px;
-$tablet: 767px;
-
 @mixin large {
   @media only screen and (max-width: #{$large}) {
     @content;
