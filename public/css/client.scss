@@ -13,24 +13,27 @@
 
 // input slider mixins
 @mixin slider-thumb {
-  border: 1px solid $dark-grey;
-  height: 2em;
-  width: 1em;
+  border: $em*.05 solid $black;
+  height: $em*2;
+  width: $em*2;
   border-radius: 3px;
   background-color: $dark-grey;
   cursor: pointer;
-  margin-top: -12px;
-  box-shadow: 2px 2px 1px $primary-dark;
+  margin-top: -15px;
+  @include transition($delay, $prop, $easing);
+  &:hover {
+    background-color: $black;
+  }
 }
 
 @mixin slider-track {
   width: $hundo;
   height: 10px;
   cursor: pointer;
-  box-shadow: 3px 3px 3px $primary-dark;
+  //box-shadow: 3px 3px 3px $primary-dark;
   background: $grey;
   border-radius: 2px;
-  border: 1px solid $primary-dark;
+  border: $em*.2 solid $black;
 }
 
 form {
@@ -41,7 +44,7 @@ form {
 
 // strip out browser default styles
 input[type="range"] {
-  margin: 2em 0;
+  margin: $em*3 0;
   -webkit-appearance: none;
   width: $hundo;
 }
@@ -70,7 +73,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 input[type="range"]:focus::-webkit-slider-runnable-track {
-  background: $primary;
+  background-color: $grey; // changes background color on click event
 }
 
 input[type="range"]::-moz-range-track {
