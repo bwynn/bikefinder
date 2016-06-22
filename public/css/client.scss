@@ -147,6 +147,18 @@ input[type="range"]::-ms-track {
   }
 }
 
+.bike-thumbs {
+  @include flex;
+  position: relative;
+  top: 400px;
+  .thumb {
+
+  }
+  .thumb-container {
+    width: $full;
+  }
+}
+
 @keyframes visible {
   from {
     opacity: 0;

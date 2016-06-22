@@ -1,13 +1,15 @@
 <section class="inner-wrapper">
   <form novalidate class="panel panel-body user-prefs">
     <div class="form-group" ng-class="{active:isSet({{$index + 1}})}" ng-repeat="question in questionData">
-      <h2>{{question.title}}</h2><span class="qCount">{{$index + 1}} of {{count}}</span>
+      <h2 class="question-title">{{question.title}}</h2><span class="qCount">{{$index + 1}} of {{count}}</span>
       <p>{{question.question}}</p>
       <input type="range" min="{{question.minVal}}" max="{{question.maxVal}}" ng-model="question.model" class="mtn-slider">
-      <div class='show-range'><span class="min-val">{{question.minVal}}</span><span class="max-val">{{question.maxVal}}</span></div>
-      <p class="pref"><strong>Your Preference:</strong> <span ng-show="selectedAnswer" ng-repeat="answer in question.answers">{{answer}}</span></p>
-      <button ng-click="setQuestion($index)" class='btn btn-info' ng-show="$index !== 0">Previous Question</button>
-      <button ng-click="setQuestion($index + 2)" class="btn btn-info next-btn">Next Question</button>
+      <div class='show-range'><span class="min-val preferences">{{question.minVal}}</span><span class="max-val preferences">{{question.maxVal}}</span></div>
+      <p class="pref results-description"><strong>Your Preference:</strong> <span ng-show="selectedAnswer" ng-repeat="answer in question.answers">{{answer}}</span></p>
+      <button ng-click="setQuestion($index)" class='btn btn-info action secondary-action' ng-show="$index !== 0">Previous Question</button>
+      <button ng-click="setQuestion($index + 2)" class="btn btn-info next-btn action secondary-action">Next Question</button>
     </div>
   </form>
+
+  <div ng-include="'/views/displayPanel.html'" class="bike-thumbs"></div>
 </section>

@@ -13,6 +13,11 @@
   transition: $delay $prop $easing;
 }
 
+@mixin flex {
+  -webkit-display: flex;
+  display: flex;
+}
+
 // GLOBAL STYLES
 body {
   background-color: $white;
@@ -20,7 +25,7 @@ body {
   font-size: $em;
   color: $black;
   .inner-wrapper, .form-group {
-    max-width: $large-width;
+    max-width: $medium-width;
     width: $full;
     margin: 0 auto;
     position: relative;

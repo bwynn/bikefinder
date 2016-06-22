@@ -6,7 +6,7 @@ body {
   font-size: 16px;
   color: #2b2b2b; }
   body .inner-wrapper, body .form-group {
-    max-width: 1180px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
     position: relative; }
@@ -185,6 +185,14 @@ input[type="range"]::-ms-track {
 
 .user-prefs .review.form-group p {
   margin: .5em 0; }
+
+.bike-thumbs {
+  -webkit-display: flex;
+  display: flex;
+  position: relative;
+  top: 400px; }
+  .bike-thumbs .thumb-container {
+    width: 100%; }
 
 @keyframes visible {
   from {
