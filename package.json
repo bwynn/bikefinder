@@ -1,10 +1,12 @@
 {
   "name": "bike-query",
   "main": "server.js",
+  "version": "1.0.1",
   "dependencies": {
     "express": "latest",
     "mongoose": "latest",
     "body-parser": "latest",
-    "morgan": "latest"
+    "morgan": "latest",
+    "socket.io": "latest"
   }
 }

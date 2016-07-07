@@ -1,5 +1,5 @@
 angular.module('FormController', [])
-  .controller('formCtrl', ['$scope', '$location', '$rootScope', 'admin', function($scope, $location, $rootScope, admin) {
+  .controller('formCtrl', ['$scope', '$location', '$rootScope', 'admin', 'socket', function($scope, $location, $rootScope, admin, socket) {
 
     $scope.prefs = {};
     $scope.question = 1;
@@ -8,7 +8,21 @@ angular.module('FormController', [])
       $scope.questionData = data.data;
       console.log($scope.questionData);
       $scope.count = $scope.questionData.length;
-      watcher($scope.questionData, $scope.selectedAnswer);
+    }).then(function() {
+      $scope.$watch($scope.questionData.model, function() {
+        for (var i = 0; i < $scope.questionData.length; i++) {
+          if ($scope.questionData[i].model > 66) {
+            $scope.selectedAnswer = $scope.questionData[i].answers[0];
+            console.log($scope.selectedAnswer);
+          } else if ($scope.questionData[i].model < 33) {
+            $scope.selectedAnswer = $scope.questionData[i].answers[1];
+            console.log($scope.selectedAnswer);
+          } else {
+            $scope.selectedAnswer = $scope.questionData[i].answers[2];
+            console.log($scope.selectedAnswer);
+          }
+        }
+      });
     });
 
     // set the question when clicked
@@ -36,20 +50,5 @@ angular.module('FormController', [])
       //console.log($scope.prefs);
       $location.path('/results'); // go to the results page
     };
-
-    function watcher(scopeTarget, selectedAnswer) {
-      $scope.$watch(scopeTarget.model, function() {
-        for (var i = 0; i < scopeTarget.length; i++) {
-          if (scopeTarget[i].model > 66) {
-            this.selectedAnswer = scopeTarget[i].answers[0];
-          } else if (scopeTarget[i].model < 33) {
-            this.selectedAnswer = scopeTarget[i].answers[1];
-          } else {
-            this.selectedAnswer = scopeTarget[i].answers[2];
-            console.log(this.selectedAnswer);
-          }
-        }
-      });
-    }
 
   }]);

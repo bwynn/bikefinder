@@ -1,11 +1,13 @@
 {
   "name": "bike_query_mean",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "dependencies": {
     "angular": "latest",
     "angular-route": "latest",
     "angular-animate": "latest",
     "angular-filepicker": "latest",
-    "bootstrap": "latest"
+    "bootstrap": "latest",
+    "socket.io-client": "latest",
+    "angular-socket-io": "latest"
   }
 }
